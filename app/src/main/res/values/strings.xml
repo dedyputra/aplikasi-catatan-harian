@@ -2,5 +2,6 @@
     <!-- strings.xml -->
     <string name="app_name">Catatan Harian</string>
     <string name="catatan_heading">Catatan Harian</string>
+    <string name="edit_catatan_heading">Edit Catatan Harian</string>
     <string name="add_button_description">Tambah catatan</string>
 </resources>

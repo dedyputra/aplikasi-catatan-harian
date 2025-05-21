@@ -1,5 +1,6 @@
 package com.example.catatanharian
 
+import android.adservices.adid.AdId
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -62,4 +63,34 @@ class CatatanDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABA
         db.close()
         return catatanList
     }
+
+//       update
+        fun  updateCatatan(catatan: Catatan) {
+            val db = writableDatabase
+            val values = ContentValues().apply {
+                put(COLUMN_TITLE, catatan.title)
+                put(COLUMN_CONTENT, catatan.content)
+            }
+            val whereClause = "$COLUMN_ID = ?"
+            val whereArgs = arrayOf(catatan.id.toString())
+            db.update(TABLE_NAME, values, whereClause, whereArgs)
+            db.close()
+
+        }
+
+         fun  getCatatanByID(catatanId: Int): Catatan {
+             val db = readableDatabase
+             val query = "SELECT * FROM $TABLE_NAME WHERE $COLUMN_ID = $catatanId"
+             val cursor = db.rawQuery(query, null)
+             cursor.moveToFirst()
+
+             val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+             val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
+             val content = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT))
+
+             cursor.close()
+             db.close()
+             return Catatan(id, title, content)
+         }
+//    end update
 }
