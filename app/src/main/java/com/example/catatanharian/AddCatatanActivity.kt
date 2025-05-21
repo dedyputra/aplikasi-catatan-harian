@@ -22,7 +22,7 @@ class AddCatatanActivity : AppCompatActivity() {
 
         db = CatatanDatabaseHelper(this)
 
-        binding.savaButton.setOnClickListener {
+        binding.saveButton.setOnClickListener {
             val title = binding.titleEditText.text.toString()
             val content = binding.contentEditText.text.toString()
             val catatan = Catatan(0, title, content)
