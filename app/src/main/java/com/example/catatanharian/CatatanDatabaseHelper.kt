@@ -93,4 +93,13 @@ class CatatanDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABA
              return Catatan(id, title, content)
          }
 //    end update
+
+//    untuk delete
+            fun  deleteCatatan(catatanId: Int) {
+            val db = writableDatabase
+            val whereClause = "$COLUMN_ID = ?"
+            val whereArgs = arrayOf(catatanId.toString())
+            db.delete(TABLE_NAME, whereClause, whereArgs)
+            db.close()
+    }
 }
