@@ -1,4 +1,4 @@
-# 📒 Aplikasi Catatan Harian (To-Do List + CRUD)
+# 📒 Aplikasi Catatan Harian
 
 Ini adalah proyek tugas akhir dari pelatihan Kotlin Mobile Development. Aplikasi ini memungkinkan pengguna untuk membuat, membaca, mengedit, dan menghapus catatan harian menggunakan SQLite.
 
